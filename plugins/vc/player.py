@@ -377,7 +377,7 @@ async def pause_playing(_, m: Message):
                    & filters.regex("^!resume"))
 async def resume_playing(_, m: Message):
     mp.group_call.resume_playout()
-    reply = await m.reply_text(f"വീണ്ടും തുടങ്ങി ശല്യം......"),
+    reply = await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} resumed",
                                quote=False)
     if mp.msg.get('pause') is not None:
         await mp.msg['pause'].delete()
