@@ -1,6 +1,6 @@
 # തമ്പുരാട്ടി യൂസർബോട് 
 
-# !(https://telegra.ph/file/4fba76fee484210cbaa74.jpg)
+# ![യൂസർബോട്](https://telegra.ph/file/4fba76fee484210cbaa74.jpg)
 
 A Telegram UserBot to Play Audio in Voice Chats.
 
