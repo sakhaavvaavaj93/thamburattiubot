@@ -365,7 +365,7 @@ async def restart_playing(_, m: Message):
 async def pause_playing(_, m: Message):
     mp.group_call.pause_playout()
     await mp.update_start_time(reset=True)
-    reply = await m.reply_text(f"തൽക്കാലം നിർത്തി"),
+    reply = await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} paused",
                                quote=False)
     mp.msg['pause'] = reply
     await m.delete()
