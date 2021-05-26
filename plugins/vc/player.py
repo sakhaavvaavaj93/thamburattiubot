@@ -49,6 +49,9 @@ DURATION_AUTOPLAY_MIN = 10
 DURATION_PLAY_HOUR = 3
 
 USERBOT_HELP = f"""{emoji.LABEL}  **Common Commands**:
+
+[![thamburatti](https://telegra.ph/file/5c37454ffdfec646828e0.jpg)]
+
 __available to group members of current voice chat__
 __starts with / (slash) or ! (exclamation mark)__
 
@@ -75,9 +78,9 @@ __starts with ! (exclamation mark)__
 \u2022 `!unmute`  unmute the VC userbot
 """
 
-USERBOT_REPO = f"""{emoji.ROBOT} **Telegram Voice Chat UserBot**
+USERBOT_REPO = f"""{emoji.ROBOT} **തമ്പുരാട്ടി vc music യൂസർബോട്ട്**
 
-- Repository: [GitHub](https://github.com/callsmusic/tgvc-userbot)
+- Repository: [GitHub](https://github.com/sakhaavvaavaj93/thamburattiubot)
 - License: AGPL-3.0-or-later"""
 
 # - Pyrogram filters
