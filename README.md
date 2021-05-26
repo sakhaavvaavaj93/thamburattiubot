@@ -12,7 +12,7 @@ along with this userbot.
 
 ## Deploy to Heroku
 
-[![ഉണ്ടാക്കൂ](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sakhaavvaavaj93/thamburattiubot/tree/dev)
+[![ഉണ്ടാക്കൂ](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sakhaavvaavaj93/thamburattiubot)
 
 - Generate Pyrogram session string by
   running [generate-pyrogram-session-string.py](generate-pyrogram-session-string.py)
