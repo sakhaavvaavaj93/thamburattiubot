@@ -7,7 +7,7 @@ A Telegram UserBot to Play Audio in Voice Chats.
 This is also the source code of the userbot which is being used for playing
 DJ/Live Sets music in [കണിമംഗലം കോവിലകം](https://t.me/kk_kanimangalam_kovilagam) group.
 
-It's recommended to use [tgmusicbot](https://github.com/sakhaavvaavaj93/thamburattibot)
+It's recommended to use [tgmusicbot](https://github.com/sakhaavvaavaj93/thamburattiubot)
 along with this userbot.
 
 ## Deploy to Heroku
