@@ -179,9 +179,7 @@ async def play_track(client, m: Message):
     # check audio
     if m.audio:
         if m.audio.duration > (DURATION_AUTOPLAY_MIN * 60):
-          #  reply = await m.reply_text(
-                f"{emoji.ROBOT} audio which duration longer than "
-                f"{str(DURATION_AUTOPLAY_MIN)} min won't be automatically "
+          #  reply = await m.reply_text(f"{emoji.ROBOT} audio which duration longer than " f"{str(DURATION_AUTOPLAY_MIN)} min won't be automatically "
                 "added to playlist")
             await _delay_delete_messages((reply,), DELETE_DELAY)
             return
