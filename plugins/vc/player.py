@@ -203,7 +203,7 @@ async def play_track(client, m: Message):
     # add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
-        m_status = await m.reply_text(
+    m_status = await m.reply_text(
             f"{emoji.INBOX_TRAY} downloading and transcoding..."
         )
         await download_audio(playlist[0])
@@ -214,11 +214,16 @@ async def play_track(client, m: Message):
         )
         await mp.update_start_time()
         await m_status.delete()
-        print(k)=(f"- START PLAYING: {playlist[0].audio.title}")
-    await mp.send_playlist()
+        pl = (f"- START PLAYING: {playlist[0].audio.title}")
     for track in playlist[:2]:
         await download_audio(track)
-    if not m.audio:
+    if message.chat.type == "private":
+            await message.reply_text(pl)        
+            await mp.send_playlist()
+        else:
+            k=await message.reply_text(pl)
+            await mp.delete(k)
+        if not m.audio:
         await m.delete()
 
 
