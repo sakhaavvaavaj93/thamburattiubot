@@ -345,8 +345,8 @@ async def restart_playing(_, m: Message):
         return
     group_call.restart_playout()
     await mp.update_start_time()
- #   reply = await m.reply_text(f"{emoji.COUNTERCLOCKWISE_ARROWS_BUTTON} " "ഒന്നൂടെ കേൾക്കാം ഈ പാട്ട്.....")
-     await _delay_delete_messages((reply, m), DELETE_DELAY)
+  #  reply = await m.reply_text(f"{emoji.COUNTERCLOCKWISE_ARROWS_BUTTON} " "ഒന്നൂടെ കേൾക്കാം ഈ പാട്ട്.....")
+   #  await _delay_delete_messages((reply, m), DELETE_DELAY)
 
 
 @Client.on_message(main_filter
