@@ -368,8 +368,7 @@ async def pause_playing(_, m: Message):
                    & filters.regex("^!resume"))
 async def resume_playing(_, m: Message):
     mp.group_call.resume_playout()
-  #  reply = await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} resumed",
-                               quote=False)
+  #  reply = await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} resumed",quote=False)
     if mp.msg.get('pause') is not None:
         await mp.msg['pause'].delete()
     await m.delete()
@@ -405,7 +404,7 @@ async def mute(_, m: Message):
     group_call = mp.group_call
     group_call.set_is_mute(True)
    # reply = await m.reply_text(f"എന്നെ ആരാടാ mute ആക്കിയേ?????")
-    await _delay_delete_messages((reply, m), DELETE_DELAY)
+   # await _delay_delete_messages((reply, m), DELETE_DELAY)
 
 
 @Client.on_message(main_filter
@@ -416,7 +415,7 @@ async def unmute(_, m: Message):
     group_call = mp.group_call
     group_call.set_is_mute(False)
   #  reply = await m.reply_text(f"ആരൊക്കെ എന്തൊക്കെ പറഞ്ഞാലും ഞാൻ സംസാരിക്കും")
-    await _delay_delete_messages((reply, m), DELETE_DELAY)
+   # await _delay_delete_messages((reply, m), DELETE_DELAY)
 
 
 @Client.on_message(main_filter
@@ -425,11 +424,7 @@ async def unmute(_, m: Message):
 async def show_repository(_, m: Message):
     if mp.msg.get('repo') is not None:
         await mp.msg['repo'].delete()
- #   mp.msg['repo'] = await m.reply_text(
-        USERBOT_REPO,
-        disable_web_page_preview=True,
-        quote=False
-    )
+ #   mp.msg['repo'] = await m.reply_text(USERBOT_REPO,disable_web_page_preview=True,quote=False)
     await m.delete()
 
 
@@ -470,7 +465,7 @@ async def skip_current_playing():
    # await mp.send_playlist()
     os.remove(os.path.join(
         download_dir,
-   #     f"{old_track.audio.file_unique_id}.raw")
+   # f"{old_track.audio.file_unique_id}.raw")
     )
     if len(playlist) == 1:
         return
