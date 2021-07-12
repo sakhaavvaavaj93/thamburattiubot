@@ -202,9 +202,7 @@ async def play_track(client, m: Message):
     # add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
-      #  m_status = await m.reply_text(
-            f"അടിച്ച് മാറ്റി നിരീക്ഷിക്കുന്നു....ഇപ്പൊ വരും പാട്ട് ......"
-        )
+      #  m_status = await m.reply_text(f"അടിച്ച് മാറ്റി നിരീക്ഷിക്കുന്നു....ഇപ്പൊ വരും പാട്ട് ......")
         await download_audio(playlist[0])
         group_call.input_filename = os.path.join(
             client.workdir,
