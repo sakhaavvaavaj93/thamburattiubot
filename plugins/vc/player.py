@@ -211,9 +211,9 @@ async def play_track(client, m: Message):
         )
         await mp.update_start_time()
        # await m_status.delete()
-       # print(f"- START PLAYING: {playlist[0].audio.title}")
+        print(f"- START PLAYING: {playlist[0].audio.title}")
        await mp.send_playlist()
-       await m.delete(playlist)
+       await mp.delete_playlist()
     for track in playlist[:2]:
         await download_audio(track)
     if not m.audio:
