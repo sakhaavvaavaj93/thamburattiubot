@@ -179,18 +179,14 @@ async def play_track(client, m: Message):
     # check audio
     if m.audio:
         if m.audio.duration > (DURATION_AUTOPLAY_MIN * 60):
-          #  reply = await m.reply_text(f"{emoji.ROBOT} audio which duration longer than " f"{str(DURATION_AUTOPLAY_MIN)} min won't be automatically "
-                "added to playlist")
+          #  reply = await m.reply_text(f"{emoji.ROBOT} audio which duration longer than " f"{str(DURATION_AUTOPLAY_MIN)} min won't be automatically " "added to playlist")
             await _delay_delete_messages((reply,), DELETE_DELAY)
             return
         m_audio = m
     elif m.reply_to_message and m.reply_to_message.audio:
         m_audio = m.reply_to_message
         if m_audio.audio.duration > (DURATION_PLAY_HOUR * 60 * 60):
-         #   reply = await m.reply_text(
-                f"{emoji.ROBOT} audio which duration longer than "
-                f"{str(DURATION_PLAY_HOUR)} hours won't be added to playlist"
-            )
+         #   reply = await m.reply_text(f"{emoji.ROBOT} audio which duration longer than " f"{str(DURATION_PLAY_HOUR)} hours won't be added to playlist")
             await _delay_delete_messages((reply,), DELETE_DELAY)
             return
     else:
@@ -351,11 +347,8 @@ async def restart_playing(_, m: Message):
         return
     group_call.restart_playout()
     await mp.update_start_time()
- #   reply = await m.reply_text(
-        f"{emoji.COUNTERCLOCKWISE_ARROWS_BUTTON}  "
-        "ഒന്നൂടെ കേൾക്കാം ഈ പാട്ട്....."
-    )
-    await _delay_delete_messages((reply, m), DELETE_DELAY)
+ #   reply = await m.reply_text(f"{emoji.COUNTERCLOCKWISE_ARROWS_BUTTON} " "ഒന്നൂടെ കേൾക്കാം ഈ പാട്ട്.....")
+     await _delay_delete_messages((reply, m), DELETE_DELAY)
 
 
 @Client.on_message(main_filter
@@ -475,8 +468,8 @@ async def skip_current_playing():
     await mp.update_start_time()
     # remove old track from playlist
     old_track = playlist.pop(0)
-    print(f"- START PLAYING: {playlist[0].audio.title}")
- #   await mp.send_playlist()
+   # print(f"- START PLAYING: {playlist[0].audio.title}")
+   # await mp.send_playlist()
     os.remove(os.path.join(
         download_dir,
    #     f"{old_track.audio.file_unique_id}.raw")
