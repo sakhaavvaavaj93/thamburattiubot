@@ -199,25 +199,27 @@ async def play_track(client, m: Message):
         reply = await m.reply_text(f"{emoji.ROBOT} already added")
         await _delay_delete_messages((reply, m), DELETE_DELAY)
         return
+
     # add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
-        m_status = await m.reply_text(f"അടിച്ച് മാറ്റി നിരീക്ഷിക്കുന്നു....ഇപ്പൊ വരും പാട്ട് ......")
+        m_status = await m.reply_text(
+            f"{emoji.INBOX_TRAY} downloading and transcoding..."
+        )
         await download_audio(playlist[0])
         group_call.input_filename = os.path.join(
             client.workdir,
             DEFAULT_DOWNLOAD_DIR,
-            f"{playlist[0].audio.file_unique_id}.raw")
+            f"{playlist[0].audio.file_unique_id}.raw"
+        )
         await mp.update_start_time()
-       # await m_status.delete()
+        await m_status.delete()
         print(f"- START PLAYING: {playlist[0].audio.title}")
-       await mp.send_playlist()
+    await mp.send_playlist()
     for track in playlist[:2]:
         await download_audio(track)
     if not m.audio:
         await m.delete()
-        await mp.delete_playlist()
-        return
 
 
 @Client.on_message(main_filter
