@@ -140,7 +140,7 @@ class MusicPlayer(object):
             ])
         if mp.msg.get('playlist') is not None:
             await mp.msg['playlist'].delete()
-      #  mp.msg['playlist'] = await send_text(pl)
+        mp.msg['playlist'] = await send_text(pl)
 
 
 mp = MusicPlayer()
@@ -155,7 +155,7 @@ async def network_status_changed_handler(gc: GroupCall, is_connected: bool):
         mp.chat_id = int("-100" + str(gc.full_chat.id))
        # await send_text(f"{emoji.CHECK_MARK_BUTTON} joined the voice chat")
     else:
-      #  await send_text(f"{emoji.CROSS_MARK_BUTTON} left the voice chat")
+       # await send_text(f"{emoji.CROSS_MARK_BUTTON} left the voice chat")
         mp.chat_id = None
 
 
@@ -202,13 +202,12 @@ async def play_track(client, m: Message):
     # add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
-      #  m_status = await m.reply_text(f"അടിച്ച് മാറ്റി നിരീക്ഷിക്കുന്നു....ഇപ്പൊ വരും പാട്ട് ......")
+        m_status = await m.reply_text(f"അടിച്ച് മാറ്റി നിരീക്ഷിക്കുന്നു....ഇപ്പൊ വരും പാട്ട് ......")
         await download_audio(playlist[0])
         group_call.input_filename = os.path.join(
             client.workdir,
             DEFAULT_DOWNLOAD_DIR,
-            f"{playlist[0].audio.file_unique_id}.raw"
-        )
+            f"{playlist[0].audio.file_unique_id}.raw")
         await mp.update_start_time()
        # await m_status.delete()
         print(f"- START PLAYING: {playlist[0].audio.title}")
