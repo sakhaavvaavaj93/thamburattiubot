@@ -203,15 +203,12 @@ async def play_track(client, m: Message):
     # add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
-    m_status = await m.reply_text(
-            f"{emoji.INBOX_TRAY} downloading and transcoding..."
-        )
-        await download_audio(playlist[0])
+    m_status = await m.reply_text(f"{emoji.INBOX_TRAY} downloading and transcoding...")
+         await download_audio(playlist[0])
         group_call.input_filename = os.path.join(
             client.workdir,
             DEFAULT_DOWNLOAD_DIR,
-            f"{playlist[0].audio.file_unique_id}.raw"
-        )
+            f"{playlist[0].audio.file_unique_id}.raw")
         await mp.update_start_time()
         await m_status.delete()
         pl = (f"- START PLAYING: {playlist[0].audio.title}")
@@ -322,8 +319,8 @@ async def list_voice_chat(client, m: Message):
         chat = await client.get_chat(chat_id)
         reply = await m.reply_text(
             f"{emoji.MUSICAL_NOTES} **ഞാൻ ഇവിടെ ഉണ്ട്....**:\n"
-            f"- **{chat.title}**"
-        )
+            f"- **{chat.title}**")
+        
     else:
         reply = await m.reply_text(emoji.NO_ENTRY
                                    + "didn't join any voice chat yet")
@@ -447,8 +444,7 @@ async def send_text(text):
         chat_id,
         text,
         disable_web_page_preview=True,
-        disable_notification=True
-    )
+        disable_notification=True)
     return message
 
 
@@ -464,8 +460,7 @@ async def skip_current_playing():
     download_dir = os.path.join(client.workdir, DEFAULT_DOWNLOAD_DIR)
     group_call.input_filename = os.path.join(
         download_dir,
-        f"{playlist[1].audio.file_unique_id}.raw"
-    )
+        f"{playlist[1].audio.file_unique_id}.raw")
     await mp.update_start_time()
     # remove old track from playlist
     old_track = playlist.pop(0)
@@ -473,8 +468,8 @@ async def skip_current_playing():
    # await mp.send_playlist()
     os.remove(os.path.join(
         download_dir,
-    f"{old_track.audio.file_unique_id}.raw")
-    )
+    f"{old_track.audio.file_unique_id}.raw"))
+    
     if len(playlist) == 1:
         return
     await download_audio(playlist[1])
