@@ -465,7 +465,7 @@ async def skip_current_playing():
    # await mp.send_playlist()
     os.remove(os.path.join(
         download_dir,
-   # f"{old_track.audio.file_unique_id}.raw")
+    f"{old_track.audio.file_unique_id}.raw")
     )
     if len(playlist) == 1:
         return
