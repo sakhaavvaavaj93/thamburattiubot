@@ -203,12 +203,11 @@ async def play_track(client, m: Message):
     # add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
-  #  m_status = await m.reply_text(f"{emoji.INBOX_TRAY} downloading and transcoding...")
+   # m_status = await m.reply_text(f"{emoji.INBOX_TRAY} downloading and transcoding...")
        await download_audio(playlist[0])
        group_call.input_filename = os.path.join(client.workdir,DEFAULT_DOWNLOAD_DIR,f"{playlist[0].audio.file_unique_id}.raw")
-   #    await m_status.delete()
-  print(f"- START PLAYING: {playlist[0].audio.title}")
-        else:
+   # await m_status.delete()
+       print(f"START PLAYING: {playlist[0].audio.title}")
             await msg.delete()
         if not playlist:
             pl = f"{emoji.NO_ENTRY} Empty playlist"
