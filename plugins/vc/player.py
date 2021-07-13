@@ -141,7 +141,7 @@ class MusicPlayer(object):
         if mp.msg.get('playlist') is not None:
             await mp.msg['playlist'].delete()
         mp.msg['playlist'] = await send_text(pl)
-            await mp.delete.msg['playlist']
+            
 
 
 mp = MusicPlayer()
@@ -219,7 +219,7 @@ async def play_track(client, m: Message):
         await download_audio(track)
     if not m.audio:
         await m.delete()
-    await _delay_delete_messages((pl,m),DELETE_DELAY)
+    await _delay_delete_messages(playlist)
         
 
 @Client.on_message(main_filter
