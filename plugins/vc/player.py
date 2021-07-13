@@ -218,7 +218,7 @@ async def play_track(client, m: Message):
         await download_audio(track)
     if not m.audio:
         await m.delete()
-    await mp.delete_playlist()
+    await _delay_delete_messages((pl,m),DELETE_DELAY)
         
 
 @Client.on_message(main_filter
