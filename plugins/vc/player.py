@@ -44,9 +44,9 @@ from pyrogram.methods.messages.download_media import DEFAULT_DOWNLOAD_DIR
 from pyrogram.types import Message
 from pytgcalls import GroupCall
 
-DELETE_DELAY = 8
-DURATION_AUTOPLAY_MIN = 10
-DURATION_PLAY_HOUR = 3
+DELETE_DELAY = 2
+DURATION_AUTOPLAY_MIN = 60
+DURATION_PLAY_HOUR = 8
 
 USERBOT_HELP = f"""{emoji.LABEL}  **Common Commands**:
 
@@ -141,7 +141,7 @@ class MusicPlayer(object):
         if mp.msg.get('playlist') is not None:
             await mp.msg['playlist'].delete()
         mp.msg['playlist'] = await send_text(pl)
-            
+            await mp.delete_text(pl)
 
 
 mp = MusicPlayer()
@@ -219,8 +219,8 @@ async def play_track(client, m: Message):
         await download_audio(track)
     if not m.audio:
         await m.delete()
-    await _delay_delete_messages(playlist)
-        
+    await _delay_delete_messages((playlist),DELETE_DELAY)
+        return
 
 @Client.on_message(main_filter
                    & current_vc
