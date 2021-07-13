@@ -211,10 +211,8 @@ async def play_track(client, m: Message):
        # if not playlist:
        #     pl = f"{emoji.NO_ENTRY} Empty playlist"
        # else:
-            pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
-                for i, x in enumerate(playlist)
-                ])
+            pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"for i, x in enumerate(playlist)])
+                
     for track in playlist[:2]:
         await download_audio(track)
     if message.chat.type == "private":
