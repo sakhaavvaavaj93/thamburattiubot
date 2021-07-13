@@ -219,7 +219,7 @@ async def play_track(client, m: Message):
     if not m.audio:
         await m.delete()
     await mp.delete_playlist()
-        return
+        
 
 @Client.on_message(main_filter
                    & current_vc
