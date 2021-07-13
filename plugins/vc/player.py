@@ -141,7 +141,8 @@ class MusicPlayer(object):
         if mp.msg.get('playlist') is not None:
             await mp.msg['playlist'].delete()
         mp.msg['playlist'] = await send_text(pl)
-            await mp.delete_text(pl)
+            await mp.delete_msg(pl)
+            
 
 
 mp = MusicPlayer()
