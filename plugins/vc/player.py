@@ -200,30 +200,26 @@ async def play_track(client, m: Message):
         await _delay_delete_messages((reply, m), DELETE_DELAY)
         return
 
-    # add to playlist
+    #  add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
-   # m_status = await m.reply_text(f"{emoji.INBOX_TRAY} downloading and transcoding...")
-       await download_audio(playlist[0])
-       group_call.input_filename = os.path.join(client.workdir,DEFAULT_DOWNLOAD_DIR,f"{playlist[0].audio.file_unique_id}.raw")
-   # await m_status.delete()
-       print(f"START PLAYING: {playlist[0].audio.title}")
-       # if not playlist:
-       #     pl = f"{emoji.NO_ENTRY} Empty playlist"
-       # else:
-            pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"for i, x in enumerate(playlist)])
-                
+        m_status = await m.reply_text(f"{emoji.INBOX_TRAY} downloading and transcoding...")
+        await download_audio(playlist[0])
+        group_call.input_filename = os.path.join(
+            client.workdir,
+            DEFAULT_DOWNLOAD_DIR,
+            f"{playlist[0].audio.file_unique_id}.raw"
+        )
+        await mp.update_start_time()
+        await m_status.delete()
+        print(f"- START PLAYING: {playlist[0].audio.title}")
+    await mp.send_playlist()
     for track in playlist[:2]:
         await download_audio(track)
-    if message.chat.type == "private":
-            await message.reply_text(pl)        
-            await mp.send_playlist()
-        else:
-            k=await message.reply_text(pl)
-            await mp.delete(k)
-        if not m.audio:
+    if not m.audio:
         await m.delete()
-
+    await mp.delete_playlist()
+        return
 
 @Client.on_message(main_filter
                    & current_vc
